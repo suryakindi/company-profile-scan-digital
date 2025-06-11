@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<!--
+Template name: Nova
+Template author: FreeBootstrap.net
+Author website: https://freebootstrap.net/
+License: https://freebootstrap.net/license
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title> Scan Digital Nusantara </title>
+     
+    <!-- ======= Google Font =======-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&amp;display=swap" rel="stylesheet">
+    <!-- End Google Font-->
+    
+    <!-- ======= Styles =======-->
+    <link href="assets/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/vendors/bootstrap-icons/font/bootstrap-icons.min.css" rel="stylesheet">
+    <link href="assets/vendors/glightbox/glightbox.min.css" rel="stylesheet">
+    <link href="assets/vendors/swiper/swiper-bundle.min.css" rel="stylesheet">
+    <link href="assets/vendors/aos/aos.css" rel="stylesheet">
+    <!-- End Styles-->
+    
+    <!-- ======= Theme Style =======-->
+    <link href="assets/css/style.css" rel="stylesheet">
+    <!-- End Theme Style-->
+    
+    <!-- ======= Apply theme =======-->
+    <script>
+      // Apply the theme as early as possible to avoid flicker
+      (function() {
+      const storedTheme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-bs-theme', storedTheme);
+      })();
+    </script>
+  </head>
+  <body>
+    
+    
+    <!-- ======= Site Wrap =======-->
+    <div class="site-wrap">
+      
+      
+      <!-- ======= Header =======-->
+      <header class="fbs__net-navbar navbar navbar-expand-lg dark" aria-label="freebootstrap.net navbar">
+        <div class="container d-flex align-items-center justify-content-between">
+          
+          
+          <!-- Start Logo-->
+          <a class="navbar-brand w-auto" href="index.html">
+            <!-- If you use a text logo, uncomment this if it is commented-->
+            <!-- Vertex--> 
+            
+            <!-- If you plan to use an image logo, uncomment this if it is commented-->
+            
+            <!-- logo dark--><img class="logo dark img-fluid" src="assets/images/logoscan.png" alt="FreeBootstrap.net image placeholder" width="50" height="50"> 
+            
+            <!-- logo light--><img class="logo light img-fluid" src="assets/images/logo-light.svg" alt="FreeBootstrap.net image placeholder">
+            
+            </a>
+          <!-- End Logo-->
+          
+          <!-- Start offcanvas-->
+          <div class="offcanvas offcanvas-start w-75" id="fbs__net-navbars" tabindex="-1" aria-labelledby="fbs__net-navbarsLabel">
+            <div class="offcanvas-body align-items-lg-center">
+              <ul class="navbar-nav nav me-auto ps-lg-5 mb-2 mb-lg-0">
+                <li class="nav-item"><a class="nav-link scroll-link active" aria-current="page" href="#home">Beranda</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#about">Tentang Kami</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#pricing">Harga</a></li>
+                 <li class="nav-item"><a class="nav-link scroll-link" href="#services">Fitur</a></li>
+                <!-- <li class="nav-item"><a class="nav-link scroll-link" href="#how-it-works">How It Works</a></li>
+                <li class="nav-item"><a class="nav-link scroll-link" href="#services">Services</a></li>
+                <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropdown <i class="bi bi-chevron-down"></i></a>
+                  
+                  <ul class="dropdown-menu">
+                    <li><a class="nav-link scroll-link dropdown-item" href="#">Multipages</a></li>
+                    <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
+                    <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
+                    <li class="nav-item dropstart"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropstart <i class="bi bi-chevron-right"></i></a>
+                      <ul class="dropdown-menu">
+                        <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
+                        <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
+                        <li class="nav-item dropstart"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropstart <i class="bi bi-chevron-right"></i></a>
+                          <ul class="dropdown-menu">
+                            <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
+                            <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
+                            <li><a class="nav-link scroll-link dropdown-item" href="#">Something else here</a></li>
+                            <li class="nav-item dropend"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">Dropend <i class="bi bi-chevron-right"></i></a>
+                              <ul class="dropdown-menu">
+                                <li><a class="nav-link scroll-link dropdown-item" href="#services">Services</a></li>
+                                <li><a class="nav-link scroll-link dropdown-item" href="#pricing">Pricing</a></li>
+                                <li><a class="nav-link scroll-link dropdown-item" href="#">Something else here</a></li>
+                              </ul>
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  
+                </li> -->
+                <li class="nav-item"><a class="nav-link scroll-link" href="#contact">Contact</a></li>
+              </ul>
+              
+            </div>
+          </div>
+          <!-- End offcanvas-->
+          
+          <div class="ms-auto w-auto">
+            
+            
+            <div class="header-social d-flex align-items-center gap-1"><a class="btn btn-primary py-2" href="#contact">Hubungi Kami</a>
+              
+              <button class="fbs__net-navbar-toggler justify-content-center align-items-center ms-auto" data-bs-toggle="offcanvas" data-bs-target="#fbs__net-navbars" aria-controls="fbs__net-navbars" aria-label="Toggle navigation" aria-expanded="false">
+                <svg class="fbs__net-icon-menu" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <line x1="21" x2="3" y1="6" y2="6"></line>
+                  <line x1="15" x2="3" y1="12" y2="12"></line>
+                  <line x1="17" x2="3" y1="18" y2="18"></line>
+                </svg>
+                <svg class="fbs__net-icon-close" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewbox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M18 6 6 18"></path>
+                  <path d="m6 6 12 12"></path>
+                </svg>
+              </button>
+              
+            </div>
+            
+          </div>
+        </div>
+      </header>
+      <!-- End Header-->
+      
+      <!-- ======= Main =======-->
+      <main>
+        
+        
+        <!-- ======= Hero =======-->
+        <section class="hero__v6 section" id="home">
+          <div class="container">
+            <div class="row">
+              <div class="col-lg-6 mb-4 mb-lg-0">
+                <div class="row">
+                  <div class="col-lg-11"><span class="hero-subtitle text-uppercase" data-aos="fade-up" data-aos-delay="0">SCAN DIGITAL NUSANTARA</span>
+                    <h1 class="hero-title mb-3" data-aos="fade-up" data-aos-delay="100">Transformasi Digital untuk Rumah Sakit, Klinik, dan Apotek Anda</h1>
+                    <p class="hero-description mb-4 mb-lg-5" data-aos="fade-up" data-aos-delay="200">Digitalisasi Kesehatan Terintegrasi, Mendukung Pelayanan Kesehatan Berkualitas di Seluruh Indonesia.</p>
+                    <div class="logos mb-4" data-aos="fade-up" data-aos-delay="400"><span class="logos-title text-uppercase mb-4 d-block">Terintegrasi Dengan Berbagai Sistem Kesehatan</span>
+                      <div class="logos-images d-flex gap-4 align-items-center">
+                        <img class="img-fluid js-img-to-inline-svg" src="https://mpp.wonogirikab.go.id/uploads/images/Logo-BPJS-Kesehatan.jpg" alt="Company 1" style="width: 110px;">
+                        <img class="img-fluid js-img-to-inline-svg" src="https://gayamsari.semarangkota.go.id/medias/media/big/34/sa.png" alt="Company 2" style="width: 150px;">
+                       
+                      </div>
+                       <div class="logos-images d-flex gap-4 align-items-center">
+                        <img class="img-fluid js-img-to-inline-svg" src="https://masiga.pta-makassar.go.id/assets/images/bssn-bsre.png" alt="Company 3" style="width: 200px;">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-lg-6">
+                <div class="hero-img"><img class="img-main img-fluid rounded-4" src="assets/images/hero-img-1-min.jpg"  alt="Hero Image" data-aos="fade-in" data-aos-delay="500"></div>
+              </div>
+            </div>
+          </div>
+          <!-- End Hero-->
+        </section>
+        <!-- End Hero-->
+        
+        <!-- ======= About =======-->
+        <section class="about__v4 section" id="about">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-6 order-md-2">
+                <div class="row justify-content-end">
+                  <div class="col-md-11 mb-4 mb-md-0">
+                    <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">Tentang Kami</span>
+                    <h2 class="mb-4" data-aos="fade-up" data-aos-delay="100">Transformasi Digital Layanan Kesehatan yang Aman, Efisien, dan Mudah Digunakan</h2>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                      <p>Didirikan dengan visi untuk merevolusi sistem pelayanan kesehatan, Scan Digital Nusantara menghadirkan solusi digital terintegrasi seperti SIMRS, SIMPUS, E-Klinik, E-Apoteker, dan HRIS.</p>
+                      <p>Platform kami dirancang untuk membantu fasilitas kesehatan mengelola operasional dan pelayanan dengan lebih baik, cepat, dan akurat—memberikan pengalaman digital yang modern bagi tenaga medis dan pasien.</p>
+                    </div>
+                    <h4 class="small fw-bold mt-4 mb-3" data-aos="fade-up" data-aos-delay="300">Nilai Utama dan Visi</h4>
+                    <ul class="d-flex flex-row flex-wrap list-unstyled gap-3 features" data-aos="fade-up" data-aos-delay="400">
+                      <li class="d-flex align-items-center gap-2">
+                        <span class="icon rounded-circle text-center"><i class="bi bi-check"></i></span>
+                        <span class="text">Inovasi</span>
+                      </li>
+                      <li class="d-flex align-items-center gap-2">
+                        <span class="icon rounded-circle text-center"><i class="bi bi-check"></i></span>
+                        <span class="text">Keamanan Data</span>
+                      </li>
+                      <li class="d-flex align-items-center gap-2">
+                        <span class="icon rounded-circle text-center"><i class="bi bi-check"></i></span>
+                        <span class="text">Desain Berbasis Pengguna</span>
+                      </li>
+                      <li class="d-flex align-items-center gap-2">
+                        <span class="icon rounded-circle text-center"><i class="bi bi-check"></i></span>
+                        <span class="text">Transparansi</span>
+                      </li>
+                      <li class="d-flex align-items-center gap-2">
+                        <span class="icon rounded-circle text-center"><i class="bi bi-check"></i></span>
+                        <span class="text">Pemberdayaan</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="img-wrap position-relative">
+                  <img class="img-fluid rounded-4" src="assets/images/about_2-min.jpg" alt="Scan Digital Nusantara" data-aos="fade-up" data-aos-delay="0">
+                  <div class="mission-statement p-4 rounded-4 d-flex gap-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="mission-icon text-center rounded-circle">
+                      <i class="bi bi-lightbulb fs-4"></i>
+                    </div>
+                    <div>
+                      <h3 class="text-uppercase fw-bold">Misi Kami</h3>
+                      <p class="fs-6 mb-0">Misi kami adalah memberdayakan fasilitas kesehatan dan tenaga medis melalui penyediaan sistem digital yang aman, efisien, dan mudah digunakan untuk meningkatkan mutu pelayanan kesehatan di Indonesia.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End About-->
+        
+        <!-- ======= Features =======-->
+        <section class="section features__v2" id="features">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-lg-flex p-5 rounded-4 content" data-aos="fade-in" data-aos-delay="0">
+                  <div class="row">
+                    <div class="col-lg-5 mb-5 mb-lg-0" data-aos="fade-up" data-aos-delay="0">
+                      <div class="row">
+                        <div class="col-lg-11">
+                          <div class="h-100 flex-column justify-content-between d-flex">
+                            <div>
+                              <h2 class="mb-4">Mengapa Memilih Kami</h2>
+                              <p class="mb-5">Kami menghadirkan solusi digital terintegrasi untuk fasilitas kesehatan yang aman, efisien, dan mudah digunakan. Dengan sistem kami, proses pelayanan medis menjadi lebih cepat, akurat, dan terkoneksi langsung dengan ekosistem kesehatan nasional.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-lg-7">
+                      <div class="row justify-content-end">
+                        <div class="col-lg-11">
+                          <div class="row">
+                            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="0">
+                              <div class="icon text-center mb-4"><i class="bi bi-diagram-3 fs-4"></i></div>
+                              <h3 class="fs-6 fw-bold mb-3">Bridging BPJS</h3>
+                              <p>Terintegrasi langsung dengan sistem BPJS Kesehatan untuk klaim dan pelayanan yang lebih efisien.</p>
+                            </div>
+                            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                              <div class="icon text-center mb-4"><i class="bi bi-file-earmark-lock fs-4"></i></div>
+                              <h3 class="fs-6 fw-bold mb-3">Tanda Tangan Digital BSrE</h3>
+                              <p>Menjamin keabsahan dokumen digital dengan integrasi ke Balai Sertifikasi Elektronik (BSrE).</p>
+                            </div>
+                            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                              <div class="icon text-center mb-4"><i class="bi bi-cloud-arrow-up fs-4"></i></div>
+                              <h3 class="fs-6 fw-bold mb-3">Integrasi SATUSEHAT</h3>
+                              <p>Tersambung ke platform SATUSEHAT dari Kementerian Kesehatan untuk sinkronisasi data kesehatan nasional.</p>
+                            </div>
+                            <div class="col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                              <div class="icon text-center mb-4"><i class="bi bi-journal-medical fs-4"></i></div>
+                              <h3 class="fs-6 fw-bold mb-3">Rekam Medis Elektronik (EMR)</h3>
+                              <p>Pengelolaan data pasien yang efisien dan aman melalui sistem EMR yang sesuai standar regulasi.</p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End Features-->
+        
+        <!-- ======= Pricing =======-->
+        <section class="section pricing__v2" id="pricing">
+          <div class="container">
+            <div class="row mb-5">
+              <div class="col-md-7 mx-auto text-center">
+                <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">Layanan</span>
+                <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100">Solusi Digital Terpadu untuk Fasilitas Kesehatan</h2>
+                <p data-aos="fade-up" data-aos-delay="200">
+                  Kami menyediakan sistem kesehatan digital yang fleksibel dan dapat disesuaikan dengan kebutuhan rumah sakit, puskesmas, maupun klinik. Silakan hubungi kami untuk mendapatkan penawaran dan konsultasi sesuai kebutuhan Anda.
+                </p>
+                <div data-aos="fade-up" data-aos-delay="300">
+                  <a href="#contact" class="btn btn-primary mt-3">Hubungi Kami</a>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-center">
+              <div class="col-md-10" data-aos="fade-up" data-aos-delay="400">
+                <div class="p-5 rounded-4 price-table popular h-100">
+                  <div class="row">
+                    <div class="col-md-6">
+                      <h3 class="mb-3">Fitur Utama</h3>
+                      <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span>
+                          <span>Electronic Medical Record (EMR) terpadu</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span>
+                          <span>Dashboard administrasi dan pelayanan kesehatan</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span>
+                          <span>Integrasi Antrian dan Rekam Medis</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check"></i></span>
+                          <span>Laporan Operasional & Monitoring Data Kesehatan</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="col-md-6">
+                      <h3 class="mb-3">Keunggulan Sistem Kami</h3>
+                      <ul class="list-unstyled d-flex flex-column gap-3">
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check2-circle"></i></span>
+                          <span>Bridging BPJS (VClaim, Antrean, Monitoring)</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check2-circle"></i></span>
+                          <span>Integrasi BSrE untuk tanda tangan elektronik</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check2-circle"></i></span>
+                          <span>Sinkronisasi data dengan Satu Sehat Kemenkes</span>
+                        </li>
+                        <li class="d-flex gap-2 align-items-start mb-0">
+                          <span class="icon rounded-circle position-relative mt-1"><i class="bi bi-check2-circle"></i></span>
+                          <span>Skalabilitas tinggi & dukungan teknis berkelanjutan</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End Pricing-->
+ 
+        
+        <!-- ======= Stats =======-->
+        <section class="stats__v3 section">
+          <div class="container">
+            <div class="row">
+              <div class="col-12">
+                <div class="d-flex flex-wrap content rounded-4" data-aos="fade-up" data-aos-delay="0">
+                  <div class="rounded-borders">
+                    <div class="rounded-border-1"></div>
+                    <div class="rounded-border-2"></div>
+                    <div class="rounded-border-3"></div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up" data-aos-delay="100">
+                    <div class="stat-item">
+                      <h3 class="fs-1 fw-bold"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="50" data-purecounter-duration="2">0</span><span>+</span></h3>
+                      <p class="mb-0">Puskesmas Terintegrasi</p>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up" data-aos-delay="200">
+                    <div class="stat-item">
+                      <h3 class="fs-1 fw-bold"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="30" data-purecounter-duration="2">0</span><span>+</span></h3>
+                      <p class="mb-0">Klinik Telah Menggunakan</p>
+                    </div>
+                  </div>
+
+                  <div class="col-12 col-sm-6 col-md-4 mb-4 mb-md-0 text-center" data-aos="fade-up" data-aos-delay="300">
+                    <div class="stat-item">
+                      <h3 class="fs-1 fw-bold"><span class="purecounter" data-purecounter-start="0" data-purecounter-end="99" data-purecounter-duration="2">0</span><span>%</span></h3>
+                      <p class="mb-0">Kepuasan Mitra</p>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End Stats-->
+        
+        <!-- ======= Services =======-->
+        <section class="section services__v3" id="services">
+          <div class="container">
+            <div class="row mb-5">
+              <div class="col-md-8 mx-auto text-center"><span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">Produk</span>
+                <h2 class="mb-3" data-aos="fade-up" data-aos-delay="100">Produk Scan Digital Nusantara</h2>
+              </div>
+            </div>
+            <div class="row g-4">
+              <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
+                    <div>
+                      <span class="icon mb-4">
+                        <!-- Ikon SVG menggambarkan teknologi/informasi medis -->
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2h-6v2h3a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h3v-2H5a2 2 0 0 1-2-2V4zm2 1v12h14V5H5zm4.5 7.5H11v2a1 1 0 1 0 2 0v-2h1.5a1 1 0 1 0 0-2H13V8.5a1 1 0 1 0-2 0V10H9.5a1 1 0 1 0 0 2z"/>
+                        </svg>
+                      </span>
+                      <h3 class="fs-5 mb-3">SIMRS</h3>
+                      <p class="mb-4">
+                        Sistem Informasi Manajemen Rumah Sakit (SIMRS) adalah platform digital yang dirancang untuk mengelola seluruh proses operasional rumah sakit secara terpadu — mulai dari pendaftaran pasien, rekam medis elektronik, manajemen keuangan, hingga pelaporan dan analitik data kesehatan.
+                      </p>
+                    </div>
+                    <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
+                      <span class="icons">
+                        <i class="icon-1 bi bi-arrow-right-short"></i>
+                        <i class="icon-2 bi bi-arrow-right-short"></i>
+                      </span>
+                      <span>Read more</span>
+                    </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
+                  <div>
+                    <span class="icon mb-4">
+                      <!-- Ikon folder medis digital -->
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24">
+                          <path d="M3 4a1 1 0 0 1 1-1h16a1 1 0 0 1 1 1v13a2 2 0 0 1-2 2h-6v2h3a1 1 0 1 1 0 2H9a1 1 0 1 1 0-2h3v-2H5a2 2 0 0 1-2-2V4zm2 1v12h14V5H5zm4.5 7.5H11v2a1 1 0 1 0 2 0v-2h1.5a1 1 0 1 0 0-2H13V8.5a1 1 0 1 0-2 0V10H9.5a1 1 0 1 0 0 2z"/>
+                      </svg>
+                    </span>
+                    <h3 class="fs-5 mb-3">SIMPUS</h3>
+                    <p class="mb-4">
+                      Sistem Informasi Manajemen Puskesmas (SIMPUS) adalah solusi digital untuk mendukung operasional layanan kesehatan tingkat pertama. Sistem ini mencakup pencatatan pasien, pengelolaan rekam medis, stok obat, rujukan, hingga pelaporan terpadu ke dinas kesehatan secara efisien dan akurat.
+                    </p>
+                  </div>
+                  <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
+                    <span class="icons">
+                      <i class="icon-1 bi bi-arrow-right-short"></i>
+                      <i class="icon-2 bi bi-arrow-right-short"></i>
+                    </span>
+                    <span>Read more</span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
+                  <div>
+                    <span class="icon mb-4">
+                      <!-- Pharmacy-themed SVG icon (medical bottle with cross) -->
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 64 64" width="48" height="48">
+                        <path d="M44 6H20a2 2 0 0 0-2 2v8h28V8a2 2 0 0 0-2-2zM18 18v38a2 2 0 0 0 2 2h24a2 2 0 0 0 2-2V18H18zm22 20h-6v6a2 2 0 1 1-4 0v-6h-6a2 2 0 0 1 0-4h6v-6a2 2 0 1 1 4 0v6h6a2 2 0 0 1 0 4z"/>
+                      </svg>
+                    </span>
+                    <h3 class="fs-5 mb-3">E-Apotek</h3>
+                    <p class="mb-4">
+                      E-Apotek adalah sistem informasi farmasi digital yang membantu pengelolaan stok obat, resep elektronik, dan pelaporan distribusi obat di fasilitas layanan kesehatan secara efisien dan terintegrasi.
+                    </p>
+                  </div>
+                  <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
+                    <span class="icons">
+                      <i class="icon-1 bi bi-arrow-right-short"></i>
+                      <i class="icon-2 bi bi-arrow-right-short"></i>
+                    </span>
+                    <span>Read more</span>
+                  </a>
+                </div>
+              </div>
+              <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="400">
+                <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
+                  <div>
+                    <span class="icon mb-4">
+                      <!-- SVG Ikon Klinik / Rumah Sakit -->
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" fill="currentColor">
+                        <path d="M50 6H14a4 4 0 0 0-4 4v44a2 2 0 0 0 2 2h10V38a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v18h10a2 2 0 0 0 2-2V10a4 4 0 0 0-4-4zM16 10h32a2 2 0 0 1 2 2v6H14v-6a2 2 0 0 1 2-2zm32 44h-6V38a4 4 0 0 0-4-4H26a4 4 0 0 0-4 4v16h-6V20h32z"/>
+                        <path d="M30 28h4v4a1 1 0 0 0 2 0v-4h4a1 1 0 0 0 0-2h-4v-4a1 1 0 0 0-2 0v4h-4a1 1 0 0 0 0 2z"/>
+                      </svg>
+                    </span>
+                    <h3 class="fs-5 mb-3">E-Klinik</h3>
+                    <p class="mb-4">
+                      Sistem informasi klinik untuk mendukung operasional harian seperti pendaftaran pasien, pencatatan medis, penjadwalan dokter, dan manajemen obat. Efisien, aman, dan terintegrasi secara digital.
+                    </p>
+                  </div>
+                  <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
+                    <span class="icons">
+                      <i class="icon-1 bi bi-arrow-right-short"></i>
+                      <i class="icon-2 bi bi-arrow-right-short"></i>
+                    </span>
+                    <span>Read more</span>
+                  </a>
+                </div>
+              </div>
+
+              <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="500">
+                <div class="service-card p-4 rounded-4 h-100 d-flex flex-column justify-content-between gap-5">
+                  <div>
+                    <span class="icon mb-4">
+                      <!-- SVG Ikon HR / Human Resource -->
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 64 64" width="64" height="64">
+                        <path d="M32 34a10 10 0 1 0-10-10 10 10 0 0 0 10 10zm0-16a6 6 0 1 1-6 6 6 6 0 0 1 6-6zM50 58a2 2 0 0 1-2-2v-3c0-5.523-7.82-10-16-10s-16 4.477-16 10v3a2 2 0 0 1-4 0v-3c0-7.01 9.424-13 20-13s20 5.99 20 13v3a2 2 0 0 1-2 2z"/>
+                      </svg>
+                    </span>
+                    <h3 class="fs-5 mb-3">HRIS</h3>
+                    <p class="mb-4">
+                      Sistem informasi SDM modern yang mengelola data karyawan, absensi, payroll, rekrutmen, dan evaluasi kinerja secara terpusat dan efisien untuk mendukung pengambilan keputusan yang tepat.
+                    </p>
+                  </div>
+                  <a class="special-link d-inline-flex gap-2 align-items-center text-decoration-none" href="#">
+                    <span class="icons">
+                      <i class="icon-1 bi bi-arrow-right-short"></i>
+                      <i class="icon-2 bi bi-arrow-right-short"></i>
+                    </span>
+                    <span>Read more</span>
+                  </a>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </section>
+        <!-- Services-->
+        
+    
+        
+        <!-- ======= FAQ =======-->
+        <section class="section faq__v2" id="faq">
+          <div class="container">
+            <div class="row mb-4">
+              <div class="col-md-6 col-lg-7 mx-auto text-center">
+                <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">FAQ</span>
+                <h2 class="h2 fw-bold mb-3" data-aos="fade-up" data-aos-delay="0">Frequently Asked Questions</h2>
+                <p data-aos="fade-up" data-aos-delay="100">
+                  Kami hadir untuk menjawab kebutuhan digitalisasi bisnis Anda. Berikut adalah beberapa pertanyaan umum terkait layanan kami.
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-8 mx-auto" data-aos="fade-up" data-aos-delay="200">
+                <div class="faq-content">
+                  <div class="accordion custom-accordion" id="accordionPanelsStayOpenExample">
+                    <!-- 1 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#faq1" aria-expanded="true" aria-controls="faq1">
+                          Apa saja layanan yang ditawarkan oleh perusahaan Anda?
+                        </button>
+                      </h2>
+                      <div class="accordion-collapse collapse show" id="faq1">
+                        <div class="accordion-body">
+                          Kami menyediakan layanan pengembangan aplikasi seperti e-Apotek, HRIS, website company profile, hingga solusi digital lainnya sesuai kebutuhan bisnis. Semua layanan dapat dikustomisasi.
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 2 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2" aria-expanded="false" aria-controls="faq2">
+                          Apakah sistem/aplikasi bisa disesuaikan dengan kebutuhan bisnis saya?
+                        </button>
+                      </h2>
+                      <div class="accordion-collapse collapse" id="faq2">
+                        <div class="accordion-body">
+                          Tentu. Setiap sistem kami dirancang untuk fleksibel dan dapat dikustomisasi sesuai kebutuhan spesifik bisnis Anda, baik dari sisi fitur, desain, maupun integrasi.
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 3 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3" aria-expanded="false" aria-controls="faq3">
+                          Berapa lama waktu pengerjaan aplikasi atau website?
+                        </button>
+                      </h2>
+                      <div class="accordion-collapse collapse" id="faq3">
+                        <div class="accordion-body">
+                          Lama pengerjaan tergantung pada kompleksitas dan fitur yang dibutuhkan. Website standar biasanya selesai dalam 2–4 minggu, sedangkan aplikasi seperti HRIS atau e-Apotek memerlukan waktu 4–8 minggu.
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 4 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq4" aria-expanded="false" aria-controls="faq4">
+                          Apakah layanan Anda termasuk maintenance dan support?
+                        </button>
+                      </h2>
+                      <div class="accordion-collapse collapse" id="faq4">
+                        <div class="accordion-body">
+                          Ya. Kami menyediakan layanan maintenance berkala, support teknis, update fitur, dan monitoring sistem untuk memastikan performa dan keamanan aplikasi Anda tetap optimal.
+                        </div>
+                      </div>
+                    </div>
+                    <!-- 5 -->
+                    <div class="accordion-item">
+                      <h2 class="accordion-header">
+                        <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq5" aria-expanded="false" aria-controls="faq5">
+                          Apakah bisa digunakan di mobile atau hanya desktop?
+                        </button>
+                      </h2>
+                      <div class="accordion-collapse collapse" id="faq5">
+                        <div class="accordion-body">
+                          Sistem kami dirancang responsif dan dapat diakses baik melalui desktop maupun perangkat mobile. Untuk kebutuhan khusus, kami juga menyediakan versi aplikasi Android/iOS.
+                        </div>
+                      </div>
+                    </div>
+                  </div> <!-- End Accordion -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End FAQ-->
+        
+        <!-- ======= Contact =======-->
+        <section class="section contact__v2" id="contact">
+          <div class="container">
+            <div class="row mb-5">
+              <div class="col-md-6 col-lg-7 mx-auto text-center">
+                <span class="subtitle text-uppercase mb-3" data-aos="fade-up" data-aos-delay="0">Contact</span>
+                <h2 class="h2 fw-bold mb-3" data-aos="fade-up" data-aos-delay="0">Contact Us</h2>
+                <p data-aos="fade-up" data-aos-delay="100">Hubungi kami atau kunjungi kantor kami untuk berdiskusi lebih lanjut mengenai solusi digital terbaik untuk bisnis Anda.</p>
+              </div>
+            </div>
+            <div class="row align-items-stretch">
+              <!-- Kontak -->
+              <div class="col-md-6 d-flex flex-column justify-content-center gap-4" data-aos="fade-up" data-aos-delay="0">
+                <div class="d-flex align-items-start gap-3">
+                  <div class="icon d-block"><i class="bi bi-telephone"></i></div>
+                  <div>
+                    <span class="d-block">Phone</span>
+                    <strong>+62 856 4047 0803</strong>
+                  </div>
+                </div>
+                <div class="d-flex align-items-start gap-3">
+                  <div class="icon d-block"><i class="bi bi-envelope"></i></div>
+                  <div>
+                    <span class="d-block">Email</span>
+                    <strong>cvscannusantara@gmail.com</strong>
+                  </div>
+                </div>
+                <div class="d-flex align-items-start gap-3">
+                  <div class="icon d-block"><i class="bi bi-geo-alt"></i></div>
+                  <div>
+                    <span class="d-block">Address</span>
+                    <address class="fw-bold mb-0">Gelora Bung Karno, Jl. Pintu Satu Senayan, Jakarta 10270</address>
+                  </div>
+                </div>
+              </div>
+              <!-- Maps -->
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="ratio ratio-4x3 rounded shadow-sm h-100">
+                  <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.3042529939574!2d106.79836397588332!3d-6.214626993773994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f13bbd19c009%3A0x95750fc4b61ae7a0!2sGelora%20Bung%20Karno%20Main%20Stadium!5e0!3m2!1sen!2sid!4v1718123456789" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- End Contact-->
+        
+        <!-- ======= Footer =======-->
+        <footer class="footer pt-5 pb-5">
+          <div class="container">
+            <div class="row credits pt-3">
+              <div class="col-12 text-center">
+                &copy;
+                <script>document.write(new Date().getFullYear());</script> IT Scan Digital Nusantara. 
+                All rights reserved. Designed with <i class="bi bi-heart-fill text-danger"></i>
+              </div>
+            </div>
+          </div>
+        </footer>
+
+        <!-- End Footer-->
+        
+      </main>
+    </div>
+    
+    <!-- ======= Back to Top =======-->
+    <button id="back-to-top"><i class="bi bi-arrow-up-short"></i></button>
+    <!-- End Back to top-->
+    
+    <!-- ======= Javascripts =======-->
+    <script src="assets/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="assets/vendors/gsap/gsap.min.js"></script>
+    <script src="assets/vendors/imagesloaded/imagesloaded.pkgd.min.js"></script>
+    <script src="assets/vendors/isotope/isotope.pkgd.min.js"></script>
+    <script src="assets/vendors/glightbox/glightbox.min.js"></script>
+    <script src="assets/vendors/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/vendors/aos/aos.js"></script>
+    <script src="assets/vendors/purecounter/purecounter.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="assets/js/send_email.js"></script>
+    <!-- End JavaScripts-->
+  </body>
+</html>
