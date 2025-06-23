@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Portal Client - Scan Digital</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-800">
+  <!-- Header -->
+  <header class="bg-white shadow p-4 flex items-center justify-between">
+    <div class="flex items-center space-x-4">
+      <!-- Logo -->
+        <img src="assets/images/logoscan.png" alt="Logo" class="h-10 w-auto max-w-[120px] object-contain" />
+
+      <h1 class="text-xl font-semibold text-blue-800">Portal Client Scan Digital</h1>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="max-w-5xl mx-auto p-6">
+    <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
+      <!-- Search Input -->
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Cari berdasarkan nama kabupaten..."
+        class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-400"
+      />
+
+      <!-- Dropdown Filter -->
+      <select
+        id="filterSelect"
+        class="w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-400"
+      >
+        <option value="">Semua Kabupaten</option>
+        <!-- Akan diisi otomatis dari JS -->
+      </select>
+    </div>
+
+    <!-- Card Grid -->
+    <div id="cardContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card akan diisi dengan JS -->
+    </div>
+  </main>
+
+  <!-- Script -->
+  <script>
+   const clients = [
+    {
+        name: "Kabupaten Paser",
+        daerah: "Batu Kajang",
+        url: "https://pkm-batukajang.scan-digital.web.id",
+        logo: "assets/images/logo/batukajang-paser.png"
+    },
+    ];
+
+
+    const cardContainer = document.getElementById("cardContainer");
+    const searchInput = document.getElementById("searchInput");
+    const filterSelect = document.getElementById("filterSelect");
+
+    // Populate dropdown unik berdasarkan kabupaten
+    const kabupatenList = [...new Set(clients.map(c => c.name))];
+    kabupatenList.forEach(kab => {
+      const opt = document.createElement("option");
+      opt.value = kab;
+      opt.textContent = kab;
+      filterSelect.appendChild(opt);
+    });
+
+    async function renderCards(searchText = "", filterKabupaten = "") {
+        cardContainer.innerHTML = "";
+
+        const filteredClients = clients.filter(client => {
+            const matchesSearch = client.name.toLowerCase().includes(searchText.toLowerCase());
+            const matchesFilter = !filterKabupaten || client.name === filterKabupaten;
+            return matchesSearch && matchesFilter;
+        });
+
+        if (filteredClients.length === 0) {
+            cardContainer.innerHTML = `<p class="text-center text-gray-500 col-span-full">Tidak ditemukan hasil.</p>`;
+            return;
+        }
+
+        for (const client of filteredClients) {
+            const card = document.createElement("div");
+            card.className = "bg-white p-6 rounded-xl shadow hover:shadow-md transition text-center";
+
+            // default status = checking
+            let statusHTML = `<span class="text-yellow-500 text-sm font-medium">⏳ Mengecek...</span>`;
+
+            card.innerHTML = `
+            <img src="${client.logo}" alt="Logo ${client.name}" class="w-16 h-16 object-contain mx-auto mb-4" />
+            <h2 class="text-xl font-bold text-blue-800 text-center">${client.name}</h2>
+            <p class="text-sm text-gray-600 text-center italic mb-2">${client.daerah}</p>
+            <div id="status-${client.url}" class="mb-3">${statusHTML}</div>
+            <div class="text-center">
+                <a href="${client.url}" target="_blank"
+                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700 transition">
+                🌐 Kunjungi Website
+                </a>
+            </div>
+            `;
+            cardContainer.appendChild(card);
+
+            // Cek status online
+            try {
+            const controller = new AbortController();
+            const timeout = setTimeout(() => controller.abort(), 5000); // 5s timeout
+            const response = await fetch(client.url, { method: "HEAD", mode: "no-cors", signal: controller.signal });
+            clearTimeout(timeout);
+
+            // status diupdate jika fetch berhasil (note: no-cors HEAD kadang tidak beri status, tapi tetap berhasil dijalankan)
+            document.getElementById(`status-${client.url}`).innerHTML =
+                `<span class="text-green-600 font-semibold">🟢 Online</span>`;
+            } catch (err) {
+            document.getElementById(`status-${client.url}`).innerHTML =
+                `<span class="text-red-500 font-semibold">🔴 Offline</span>`;
+            }
+        }
+    }
+
+
+    // Event listeners
+    searchInput.addEventListener("input", () => {
+      renderCards(searchInput.value, filterSelect.value);
+    });
+
+    filterSelect.addEventListener("change", () => {
+      renderCards(searchInput.value, filterSelect.value);
+    });
+
+    // Initial render
+    renderCards();
+  </script>
+</body>
+</html>
