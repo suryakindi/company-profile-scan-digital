@@ -73,7 +73,10 @@
         cardContainer.innerHTML = "";
 
         const filteredClients = clients.filter(client => {
-            const matchesSearch = client.name.toLowerCase().includes(searchText.toLowerCase());
+            const matchesSearch = (
+              client.name.toLowerCase().includes(searchText.toLowerCase()) ||
+              client.daerah.toLowerCase().includes(searchText.toLowerCase())
+            );
             const matchesFilter = !filterKabupaten || client.name === filterKabupaten;
             return matchesSearch && matchesFilter;
         });
@@ -87,7 +90,6 @@
             const card = document.createElement("div");
             card.className = "bg-white p-6 rounded-xl shadow hover:shadow-md transition text-center";
 
-            // default status = checking
             let statusHTML = `<span class="text-yellow-500 text-sm font-medium">⏳ Mengecek...</span>`;
 
             card.innerHTML = `
@@ -104,19 +106,17 @@
             `;
             cardContainer.appendChild(card);
 
-            // Cek status online
             try {
-            const controller = new AbortController();
-            const timeout = setTimeout(() => controller.abort(), 5000); // 5s timeout
-            const response = await fetch(client.url, { method: "HEAD", mode: "no-cors", signal: controller.signal });
-            clearTimeout(timeout);
+                const controller = new AbortController();
+                const timeout = setTimeout(() => controller.abort(), 5000);
+                const response = await fetch(client.url, { method: "HEAD", mode: "no-cors", signal: controller.signal });
+                clearTimeout(timeout);
 
-            // status diupdate jika fetch berhasil (note: no-cors HEAD kadang tidak beri status, tapi tetap berhasil dijalankan)
-            document.getElementById(`status-${client.url}`).innerHTML =
-                `<span class="text-green-600 font-semibold">🟢 Online</span>`;
+                document.getElementById(`status-${client.url}`).innerHTML =
+                    `<span class="text-green-600 font-semibold">🟢 Online</span>`;
             } catch (err) {
-            document.getElementById(`status-${client.url}`).innerHTML =
-                `<span class="text-red-500 font-semibold">🔴 Offline</span>`;
+                document.getElementById(`status-${client.url}`).innerHTML =
+                    `<span class="text-red-500 font-semibold">🔴 Offline</span>`;
             }
         }
     }
