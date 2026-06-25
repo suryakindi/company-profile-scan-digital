@@ -61,23 +61,6 @@
       object-fit: cover;
     }
 
-    .status-dot {
-      width: 7px;
-      height: 7px;
-      border-radius: 50%;
-      display: inline-block;
-    }
-
-    .btn-visit {
-      background: linear-gradient(135deg, var(--brand-from), var(--brand-to));
-      transition: filter 0.2s ease, transform 0.2s ease;
-    }
-
-    .btn-visit:hover {
-      filter: brightness(1.08);
-      transform: translateY(-1px);
-    }
-
     .header-blur {
       backdrop-filter: blur(10px);
       background-color: rgba(255, 255, 255, 0.85);
@@ -96,10 +79,6 @@
           <p class="text-[11px] text-slate-400 -mt-0.5 tracking-wide uppercase">Scan Digital</p>
         </div>
       </div>
-      <span id="liveCount" class="hidden sm:inline-flex items-center gap-2 text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
-        <span class="status-dot bg-emerald-500"></span>
-        <span id="liveCountText">Memuat status...</span>
-      </span>
     </div>
   </header>
 
@@ -107,12 +86,13 @@
   <section class="max-w-6xl mx-auto px-6 pt-12 pb-6">
     <p class="font-display text-xs font-semibold tracking-[0.2em] text-indigo-600 uppercase mb-3">Direktori Client</p>
     <h1 class="font-display text-3xl sm:text-4xl font-bold text-[var(--ink)] max-w-2xl">
-      Semua layanan scan digital, satu pintu masuk.
+      Instansi yang telah bermitra dengan kami.
     </h1>
     <p class="text-slate-500 mt-3 max-w-xl">
-      Pilih instansi untuk membuka portal scan digital masing-masing. Status koneksi diperbarui otomatis.
+      Berikut daftar instansi yang telah menggunakan layanan scan digital dari kami.
     </p>
   </section>
+
 
   <!-- Card Grid -->
   <main class="max-w-6xl mx-auto px-6 pb-16">
@@ -131,86 +111,46 @@
       {
         name: "RSAD DR ARYOKO",
         daerah: "RSAD DR ARYOKO",
-        url: "https://rsad-aryoko.scan-digital.web.id",
         logo: "https://picsum.photos/seed/aryoko/200/200"
       },
       {
         name: "Rumah Sakit Tk.IV Samarinda",
         daerah: "Rumah Sakit Tk.IV Samarinda",
-        url: "https://rstkiv-samarinda.scan-digital.web.id",
         logo: "https://picsum.photos/seed/samarinda/200/200"
       },
       {
         name: "Rumah Sakit TNI AD Tanjung Selor",
         daerah: "Rumah Sakit TNI AD Tanjung Selor",
-        url: "https://rs-tanjungselor.scan-digital.web.id",
         logo: "https://picsum.photos/seed/tanjungselor/200/200"
       },
       {
         name: "Kabupaten Asmat Papua Selatan",
         daerah: "Kabupaten Asmat Papua Selatan",
-        url: "https://kab-asmat.scan-digital.web.id",
         logo: "https://picsum.photos/seed/asmat/200/200"
       },
     ];
 
     const cardContainer = document.getElementById("cardContainer");
-    const liveCountText = document.getElementById("liveCountText");
-    let onlineCount = 0;
-    let checkedCount = 0;
 
-    function updateLiveCount() {
-      liveCountText.textContent = checkedCount < clients.length
-        ? "Memuat status..."
-        : `${onlineCount}/${clients.length} layanan online`;
-    }
-
-    async function renderCards() {
+    function renderCards() {
       cardContainer.innerHTML = "";
 
       for (const client of clients) {
         const card = document.createElement("div");
-        card.className = "card p-6 flex flex-col";
-
-        const statusHTML = `<span class="inline-flex items-center gap-1.5 text-xs font-medium text-amber-500"><span class="status-dot bg-amber-400"></span> Mengecek...</span>`;
+        card.className = "card p-6 flex items-center gap-4";
 
         card.innerHTML = `
-          <div class="flex items-start gap-4 mb-5">
-            <div class="logo-frame">
-              <img src="${client.logo}" alt="Logo ${client.name}" />
-            </div>
-            <div class="flex-1 min-w-0 pt-1">
-              <h2 class="font-display text-base font-semibold text-[var(--ink)] leading-snug">${client.daerah}</h2>
-              <div id="status-${client.url}" class="mt-2">${statusHTML}</div>
-            </div>
+          <div class="logo-frame">
+            <img src="${client.logo}" alt="Logo ${client.name}" />
           </div>
-          <a href="${client.url}" target="_blank"
-            class="btn-visit mt-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl text-white">
-            Kunjungi Portal
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
-          </a>
+          <div class="flex-1 min-w-0">
+            <h2 class="font-display text-base font-semibold text-[var(--ink)] leading-snug">${client.daerah}</h2>
+          </div>
         `;
         cardContainer.appendChild(card);
-
-        try {
-          const controller = new AbortController();
-          const timeout = setTimeout(() => controller.abort(), 5000);
-          await fetch(client.url, { method: "HEAD", mode: "no-cors", signal: controller.signal });
-          clearTimeout(timeout);
-
-          document.getElementById(`status-${client.url}`).innerHTML =
-            `<span class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600"><span class="status-dot bg-emerald-500"></span> Online</span>`;
-          onlineCount++;
-        } catch (err) {
-          document.getElementById(`status-${client.url}`).innerHTML =
-            `<span class="inline-flex items-center gap-1.5 text-xs font-medium text-red-500"><span class="status-dot bg-red-500"></span> Offline</span>`;
-        }
-        checkedCount++;
-        updateLiveCount();
       }
     }
 
-    updateLiveCount();
     renderCards();
   </script>
 </body>
