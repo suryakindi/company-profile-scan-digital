@@ -5,133 +5,212 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Portal Client - Scan Digital</title>
   <script src="https://cdn.tailwindcss.com"></script>
-</head>
-<body class="bg-gray-100 text-gray-800">
-  <!-- Header -->
-  <header class="bg-white shadow p-4 flex items-center justify-between">
-    <div class="flex items-center space-x-4">
-      <!-- Logo -->
-        <img src="assets/images/logoscan.png" alt="Logo" class="h-10 w-auto max-w-[120px] object-contain" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
-      <h1 class="text-xl font-semibold text-blue-800">Portal Client Scan Digital</h1>
+    :root {
+      --ink: #0F172A;
+      --slate: #475569;
+      --line: #E2E8F0;
+      --surface: #FFFFFF;
+      --canvas: #F4F6FB;
+      --brand-from: #2563EB;
+      --brand-to: #4F46E5;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background-color: var(--canvas);
+      background-image:
+        radial-gradient(circle at 0% 0%, rgba(79, 70, 229, 0.08), transparent 40%),
+        radial-gradient(circle at 100% 0%, rgba(37, 99, 235, 0.06), transparent 35%);
+    }
+
+    .font-display {
+      font-family: 'Sora', sans-serif;
+    }
+
+    .card {
+      background: var(--surface);
+      border: 1px solid var(--line);
+      border-radius: 20px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 35px -15px rgba(30, 41, 59, 0.18);
+      border-color: rgba(79, 70, 229, 0.25);
+    }
+
+    .logo-frame {
+      width: 64px;
+      height: 64px;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--canvas);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .logo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .btn-visit {
+      background: linear-gradient(135deg, var(--brand-from), var(--brand-to));
+      transition: filter 0.2s ease, transform 0.2s ease;
+    }
+
+    .btn-visit:hover {
+      filter: brightness(1.08);
+      transform: translateY(-1px);
+    }
+
+    .header-blur {
+      backdrop-filter: blur(10px);
+      background-color: rgba(255, 255, 255, 0.85);
+    }
+  </style>
+</head>
+<body class="text-slate-800">
+
+  <!-- Header -->
+  <header class="sticky top-0 z-10 header-blur border-b border-slate-200/70">
+    <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img src="assets/images/logoscan.png" alt="Logo" class="h-9 w-auto max-w-[110px] object-contain" />
+        <div class="leading-tight">
+          <p class="font-display font-bold text-[15px] text-[var(--ink)]">Portal Client</p>
+          <p class="text-[11px] text-slate-400 -mt-0.5 tracking-wide uppercase">Scan Digital</p>
+        </div>
+      </div>
+      <span id="liveCount" class="hidden sm:inline-flex items-center gap-2 text-xs font-medium text-slate-500 bg-slate-100 px-3 py-1.5 rounded-full">
+        <span class="status-dot bg-emerald-500"></span>
+        <span id="liveCountText">Memuat status...</span>
+      </span>
     </div>
   </header>
 
-  <!-- Main Content -->
-  <main class="max-w-5xl mx-auto p-6">
-    <div class="mb-6 flex flex-col md:flex-row md:items-center md:justify-between space-y-4 md:space-y-0">
-      <!-- Search Input -->
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Cari berdasarkan nama kabupaten..."
-        class="w-full md:w-1/2 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-400"
-      />
+  <!-- Hero -->
+  <section class="max-w-6xl mx-auto px-6 pt-12 pb-6">
+    <p class="font-display text-xs font-semibold tracking-[0.2em] text-indigo-600 uppercase mb-3">Direktori Client</p>
+    <h1 class="font-display text-3xl sm:text-4xl font-bold text-[var(--ink)] max-w-2xl">
+      Semua layanan scan digital, satu pintu masuk.
+    </h1>
+    <p class="text-slate-500 mt-3 max-w-xl">
+      Pilih instansi untuk membuka portal scan digital masing-masing. Status koneksi diperbarui otomatis.
+    </p>
+  </section>
 
-      <!-- Dropdown Filter -->
-      <select
-        id="filterSelect"
-        class="w-full md:w-1/4 px-4 py-2 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring focus:border-blue-400"
-      >
-        <option value="">Semua Kabupaten</option>
-        <!-- Akan diisi otomatis dari JS -->
-      </select>
-    </div>
-
-    <!-- Card Grid -->
-    <div id="cardContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+  <!-- Card Grid -->
+  <main class="max-w-6xl mx-auto px-6 pb-16">
+    <div id="cardContainer" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
       <!-- Card akan diisi dengan JS -->
     </div>
   </main>
 
+  <footer class="max-w-6xl mx-auto px-6 pb-10 text-center text-xs text-slate-400">
+    © 2026 Scan Digital. Seluruh hak cipta dilindungi.
+  </footer>
+
   <!-- Script -->
   <script>
-   const clients = [
-    {
-        name: "Kabupaten Paser",
-        daerah: "Puskesmas Batu Kajang",
-        url: "https://pkm-batukajang.scan-digital.web.id",
-        logo: "assets/images/logo/batukajang-paser.png"
-    },
+    const clients = [
+      {
+        name: "RSAD DR ARYOKO",
+        daerah: "RSAD DR ARYOKO",
+        url: "https://rsad-aryoko.scan-digital.web.id",
+        logo: "https://picsum.photos/seed/aryoko/200/200"
+      },
+      {
+        name: "Rumah Sakit Tk.IV Samarinda",
+        daerah: "Rumah Sakit Tk.IV Samarinda",
+        url: "https://rstkiv-samarinda.scan-digital.web.id",
+        logo: "https://picsum.photos/seed/samarinda/200/200"
+      },
+      {
+        name: "Rumah Sakit TNI AD Tanjung Selor",
+        daerah: "Rumah Sakit TNI AD Tanjung Selor",
+        url: "https://rs-tanjungselor.scan-digital.web.id",
+        logo: "https://picsum.photos/seed/tanjungselor/200/200"
+      },
+      {
+        name: "Kabupaten Asmat Papua Selatan",
+        daerah: "Kabupaten Asmat Papua Selatan",
+        url: "https://kab-asmat.scan-digital.web.id",
+        logo: "https://picsum.photos/seed/asmat/200/200"
+      },
     ];
 
-
     const cardContainer = document.getElementById("cardContainer");
-    const searchInput = document.getElementById("searchInput");
-    const filterSelect = document.getElementById("filterSelect");
+    const liveCountText = document.getElementById("liveCountText");
+    let onlineCount = 0;
+    let checkedCount = 0;
 
-    // Populate dropdown unik berdasarkan kabupaten
-    const kabupatenList = [...new Set(clients.map(c => c.name))];
-    kabupatenList.forEach(kab => {
-      const opt = document.createElement("option");
-      opt.value = kab;
-      opt.textContent = kab;
-      filterSelect.appendChild(opt);
-    });
-
-    async function renderCards(searchText = "", filterKabupaten = "") {
-        cardContainer.innerHTML = "";
-
-        const filteredClients = clients.filter(client => {
-            const matchesSearch = (
-              client.name.toLowerCase().includes(searchText.toLowerCase()) ||
-              client.daerah.toLowerCase().includes(searchText.toLowerCase())
-            );
-            const matchesFilter = !filterKabupaten || client.name === filterKabupaten;
-            return matchesSearch && matchesFilter;
-        });
-
-        if (filteredClients.length === 0) {
-            cardContainer.innerHTML = `<p class="text-center text-gray-500 col-span-full">Tidak ditemukan hasil.</p>`;
-            return;
-        }
-
-        for (const client of filteredClients) {
-            const card = document.createElement("div");
-            card.className = "bg-white p-6 rounded-xl shadow hover:shadow-md transition text-center";
-
-            let statusHTML = `<span class="text-yellow-500 text-sm font-medium">⏳ Mengecek...</span>`;
-
-            card.innerHTML = `
-            <img src="${client.logo}" alt="Logo ${client.name}" class="w-16 h-16 object-contain mx-auto mb-4" />
-            <h2 class="text-xl font-bold text-blue-800 text-center">${client.daerah}</h2>
-            <p class="text-sm text-gray-600 text-center italic mb-2">${client.name}</p>
-            <div id="status-${client.url}" class="mb-3">${statusHTML}</div>
-            <div class="text-center">
-                <a href="${client.url}" target="_blank"
-                class="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-medium rounded-full bg-gradient-to-r from-blue-500 to-indigo-600 text-white hover:from-blue-600 hover:to-indigo-700 transition">
-                🌐 Kunjungi Website
-                </a>
-            </div>
-            `;
-            cardContainer.appendChild(card);
-
-            try {
-                const controller = new AbortController();
-                const timeout = setTimeout(() => controller.abort(), 5000);
-                const response = await fetch(client.url, { method: "HEAD", mode: "no-cors", signal: controller.signal });
-                clearTimeout(timeout);
-
-                document.getElementById(`status-${client.url}`).innerHTML =
-                    `<span class="text-green-600 font-semibold">🟢 Online</span>`;
-            } catch (err) {
-                document.getElementById(`status-${client.url}`).innerHTML =
-                    `<span class="text-red-500 font-semibold">🔴 Offline</span>`;
-            }
-        }
+    function updateLiveCount() {
+      liveCountText.textContent = checkedCount < clients.length
+        ? "Memuat status..."
+        : `${onlineCount}/${clients.length} layanan online`;
     }
 
+    async function renderCards() {
+      cardContainer.innerHTML = "";
 
-    // Event listeners
-    searchInput.addEventListener("input", () => {
-      renderCards(searchInput.value, filterSelect.value);
-    });
+      for (const client of clients) {
+        const card = document.createElement("div");
+        card.className = "card p-6 flex flex-col";
 
-    filterSelect.addEventListener("change", () => {
-      renderCards(searchInput.value, filterSelect.value);
-    });
+        const statusHTML = `<span class="inline-flex items-center gap-1.5 text-xs font-medium text-amber-500"><span class="status-dot bg-amber-400"></span> Mengecek...</span>`;
 
-    // Initial render
+        card.innerHTML = `
+          <div class="flex items-start gap-4 mb-5">
+            <div class="logo-frame">
+              <img src="${client.logo}" alt="Logo ${client.name}" />
+            </div>
+            <div class="flex-1 min-w-0 pt-1">
+              <h2 class="font-display text-base font-semibold text-[var(--ink)] leading-snug">${client.daerah}</h2>
+              <div id="status-${client.url}" class="mt-2">${statusHTML}</div>
+            </div>
+          </div>
+          <a href="${client.url}" target="_blank"
+            class="btn-visit mt-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 text-sm font-medium rounded-xl text-white">
+            Kunjungi Portal
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7M7 7h10v10"/></svg>
+          </a>
+        `;
+        cardContainer.appendChild(card);
+
+        try {
+          const controller = new AbortController();
+          const timeout = setTimeout(() => controller.abort(), 5000);
+          await fetch(client.url, { method: "HEAD", mode: "no-cors", signal: controller.signal });
+          clearTimeout(timeout);
+
+          document.getElementById(`status-${client.url}`).innerHTML =
+            `<span class="inline-flex items-center gap-1.5 text-xs font-medium text-emerald-600"><span class="status-dot bg-emerald-500"></span> Online</span>`;
+          onlineCount++;
+        } catch (err) {
+          document.getElementById(`status-${client.url}`).innerHTML =
+            `<span class="inline-flex items-center gap-1.5 text-xs font-medium text-red-500"><span class="status-dot bg-red-500"></span> Offline</span>`;
+        }
+        checkedCount++;
+        updateLiveCount();
+      }
+    }
+
+    updateLiveCount();
     renderCards();
   </script>
 </body>
